@@ -1,0 +1,45 @@
+html{
+	max-width: 100%;
+}
+body{
+	max-width: 100%;
+	overflow: hidden;
+	font-family: 'Roboto', sans-serif;
+	background-image: url("../blurred.jpg");
+	background-repeat: no-repeat;
+	background-size: length;
+	color:white;
+	padding: 0 0 0 0;
+}
+
+#title-text{
+	text-align: center;
+	font-size: 7vmin;
+	font-family: 'Roboto', sans-serif;
+}
+#info-section{
+	font-family: 'Roboto', sans-serif;
+	margin-top: 90px;
+}
+.sec1{
+	border-right: 1px solid white;
+}
+.secright, .secleft{
+	width: 10vmin;
+}
+.rightsec p, .leftsec p{
+	font-size: 3.7vmin;
+}
+.logo{
+	transform: scale(.07);
+	margin: 0;
+	position: relative;
+	-webkit-transform-origin: 0% 0% 0px;
+	margin-top: -1.2vmin;
+}
+.navbar{
+	margin: 0;
+}
+.navbar-brand{
+	width: 100px;
+}

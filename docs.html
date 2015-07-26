@@ -1,0 +1,248 @@
+<html>
+<head>
+    <title>Dexto</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="style/Docs.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <script src="js/Docs.js"></script>
+
+
+</head>
+<body>
+
+    <div class = "col-md-12">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Javascript API
+                    <small>Connect Any Device to Dexto in 3 easy steps</small>
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <b>Dexto</b> sends the real time data for the position of joints in the hand.<br>
+                <b>You</b> make that data work for you<br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="numberCircle">1</div>
+                <h4> Copy the following script file into your website heads</h4>
+                <code>js/dexto.js</code>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="numberCircle">2</div>
+                <h4> Connect to our database using the following command</h4>
+                <code>Dexto.connect("myName")</code>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="numberCircle">3</div>
+                <h4> send a parse-able GET request to your website's server using...</h4>
+                <code>Dexto.update()</code>
+            </div>
+        </div>
+    </div>
+    <hr style="height: 10px">
+    <div style="margin-top:40px;"class="row">
+        <div class="col-lg-12">
+            <div class="code processing">
+                <h4 class="cHead"><span>code</span> </h4>
+                <div class="cBody">
+                    <div class="lines">
+                        01<br />02<br />03<br />04<br />05<br />06<br />07<br />08<br />09<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20<br />21<br />22<br />23<br />24<br />25<br />26<br />27<br />28<br />29<br />30<br />31<br />32<br />33<br />34<br />35<br />36<br />37<br />38<br />39<br />40<br />41<br />42<br />43<br />44<br />45<br />46<br />47<br />48<br />49<br />50<br />51<br />52<br />53<br />54<br />55<br />56<br />57<br />58<br />59<br />60<br />61<br />62<br />63<br />64<br />65<br />66<br />67<br />68<br />69<br />70<br />71<br />72<br />73<br />74<br />75<br />76<br />77<br />78<br />79<br />80<br />81<br />82<br />83<br />84<br />85<br />86<br />87<br />88<br />89<br />90<br />91<br />92<br />93<br />94<br />95<br />96<br />97<br />98<br />99<br />100<br />101<br />102<br />103<br />104<br />105<br />106<br />107<br />108<br />109<br />110<br />111<br />112<br />113<br />114<br />115<br />116<br />117<br />118<br />119<br />120<br />121<br />122<br />123<br />124<br />125<br />126<br />127<br />128<br />129<br />130<br />131<br />132<br />133<br />134<br />135<br />136<br />137<br />138<br />139<br />140<br />141<br />142<br />143<br />144<br />145<br />146<br />147<br />148<br />149<br />150<br />151<br />152<br />153<br />154<br />155<br />156<br />157<br />158<br />159<br />160
+                    </div>
+                    <pre>#include &lt;SPI.h&gt;
+                        #include &lt;Ethernet.h&gt;
+                        <span Class="KEY">byte</span> mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+                        IPAddress ip(192, 168, 1, 177);
+                        <span Class="KEY">String</span> deviceName = "your-device-name";
+                        EthernetServer server(80);
+
+                        <span Class="KEY">void</span> <span Class="KEY">setup</span>() {
+                            Ethernet.begin(mac, ip);
+                            server.begin();
+                        } <span Class="KEY">boolean</span> pinModes[10] = {INPUT, INPUT, INPUT, INPUT, INPUT, INPUT, INPUT, INPUT, INPUT, INPUT}; <span Class="KEY">void</span> <span Class="KEY">loop</span>() {
+                            EthernetClient client = server.available();
+                            <span Class="KEY">if</span> (client) {
+                                <span Class="KEY">boolean</span> currentLineIsBlank = <span Class="KEY">true</span>;
+                                <span Class="KEY">int</span> index = 0;
+                                <span Class="KEY">boolean</span> inReq = 0;
+                                <span Class="KEY">int</span> curPin = 0;
+                                <span Class="KEY">char</span> start[4] = {<span Class="STR">'G', 'E', 'T', ' '</span>};
+                                <span Class="KEY">while</span> (client.connected()) {
+                                    <span Class="KEY">if</span> (client.available()) {
+                                        <span Class="KEY">char</span> c = client.read();
+                                        <span Class="KEY">if</span> (!inReq) {
+                                            <span Class="KEY">if</span> (c == start[index]) {
+                                                index ++;
+                                            }           <span Class="KEY">if</span> (index == 4) {
+                                                index = 0;
+                                                inReq = <span Class="KEY">true</span>;
+                                            }
+                                        }         <span Class="KEY">else</span> {
+                                            <span Class="KEY">if</span> (c == <span Class="STR">' '</span>) {
+                                                inReq = <span Class="KEY">false</span>;
+                                                index = 0;
+                                            }            <span Class="KEY">if</span> (c == <span Class="STR">'/'</span>) {
+                                                index = 1;
+                                            }           <span Class="KEY">else</span> {
+                                                <span Class="KEY">if</span> (index &gt; 0) {
+                                                    <span Class="KEY">if</span> (c == <span Class="STR">'f'</span>) {
+                                                        inReq = <span Class="KEY">false</span>;
+                                                        index = 0;
+                                                    }               <span Class="KEY">else</span> {
+                                                        <span Class="KEY">if</span> (index == 1) {
+                                                            curPin = toInt(c);
+                                                            index ++;
+                                                        }                 <span Class="KEY">else</span> <span Class="KEY">if</span> (index == 2) {
+                                                            <span Class="KEY">if</span> (c == <span Class="STR">'1'</span>) {
+                                                                pinModes[curPin] = OUTPUT;
+                                                                pinMode(curPin, pinModes[curPin]);
+                                                                digitalWrite(curPin, HIGH);
+                                                            }                   <span Class="KEY">else</span> {
+                                                                digitalWrite(curPin, LOW);
+                                                                pinModes[curPin] = INPUT;
+                                                            }                   index = 0;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }          <span Class="KEY">if</span> (c == <span Class="STR">'\n'</span> && currentLineIsBlank) {
+                                            <span Class="KEY">int</span> digitalReading[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                                            <span Class="KEY">int</span> analogReading[] = { 0, 0, 0, 0, 0, 0 };
+                                            client.<span Class="KEY">println</span>("HTTP/1.1 200 OK");
+                                            client.<span Class="KEY">println</span>("Content-Type: <span Class="KEY">text</span>/html");
+                                            client.<span Class="KEY">println</span>("Connection: close");
+                                            client.<span Class="KEY">println</span>("Refresh: 5");
+                                            client.<span Class="KEY">println</span>();
+                                            client.<span Class="KEY">println</span>("&lt;!DOCTYPE HTML&gt;");
+                                            client.<span Class="KEY">println</span>("&lt;html&gt;&lt;head&gt;");
+                                            client.<span Class="KEY">println</span>("&lt;<span Class="KEY">link</span> rel=<span Class="STR">&quot;shortcut icon&quot; href=&quot;http:<span Class="COM">//arduinoroom.com/img/favicon.ico&quot;</span>&gt;");
+                                        </span>          client.<span Class="KEY">println</span>("&lt;<span Class="KEY">link</span> rel=<span Class="STR">&quot;stylesheet&quot; href=&quot;http:<span Class="COM">//arduinoroom.com/css/ethernet.css&quot;</span>&gt;");
+                                    </span>          client.<span Class="KEY">println</span>("&lt;script src=<span Class="STR">&quot;http:<span Class="COM">//arduinoroom.com/js/ethernet.js&quot;</span>&gt;&lt;/script&gt;");
+                                </span>          client.<span Class="KEY">println</span>("&lt;script type=<span Class="STR">&quot;<span Class="KEY">text</span>/javascript&quot;</span>&gt;");
+                                client.<span Class="KEY">print</span>("Arduino.update('");
+                                client.<span Class="KEY">print</span>(deviceName);
+                                client.<span Class="KEY">println</span>("', {");
+                                <span Class="KEY">for</span> (<span Class="KEY">int</span> i = 0 ; i &lt; 10 ; i++) {
+                                    <span Class="KEY">if</span> (i != 4 ) {
+                                        <span Class="KEY">if</span> (pinModes[i] == INPUT) {
+                                            digitalReading[i] = digitalRead(i);
+                                        }               client.<span Class="KEY">print</span>("D");
+                                        client.<span Class="KEY">print</span>(i);
+                                        client.<span Class="KEY">print</span>(": ");
+                                        <span Class="KEY">if</span> (pinModes[i] == INPUT) {
+                                            client.<span Class="KEY">print</span>(digitalReading[i]);
+                                        }               <span Class="KEY">else</span> {
+                                            client.<span Class="KEY">print</span>("<span Class="KEY">false</span>");
+                                        }               client.<span Class="KEY">print</span>(",");
+                                    }              <span Class="KEY">if</span> (i &lt; 6) {
+                                        analogReading[i] = analogRead(i);
+                                        client.<span Class="KEY">print</span>("A");
+                                        client.<span Class="KEY">print</span>(i);
+                                        client.<span Class="KEY">print</span>(": ");
+                                        client.<span Class="KEY">print</span>(analogReading[i]);
+                                        client.<span Class="KEY">print</span>(",");
+                                    }
+                                }            client.<span Class="KEY">print</span>("time: ");
+                                client.<span Class="KEY">print</span>(<span Class="KEY">millis</span>());
+                                client.<span Class="KEY">println</span>("});");
+                                client.<span Class="KEY">println</span>("&lt;/script&gt;&lt;/head&gt;");
+                                client.<span Class="KEY">println</span>("&lt;body style=<span Class="STR">&quot;position:relative&quot;</span>&gt;");
+                                client.<span Class="KEY">println</span>("&lt;img <span Class="KEY">class</span>=<span Class="STR">&quot;ethernet&quot; src=&quot;http:<span Class="COM">//arduinoroom.com/img/pins.png&quot;</span>&gt;");
+                            </span>          <span Class="KEY">int</span> h_width[] = {              225, 50, 235, 42, 243, 42, 254, 24, 262, 16, 270, 10, 280, 270, 10, 262, 16, 35, 47, 30, 52, 25, 57, 20, 62, 15, 67, 10, 72           };
+                            <span Class="KEY">int</span> h_top[] = {              312, 120, 326, 170, 350, 220, 364, 270, 379, 320, 408, 370, 422, 437, 477, 451, 525, 170, 379, 220, 393, 270, 407, 320, 422, 370, 436, 420, 451           };
+                            <span Class="KEY">int</span> h_left[] = {              42, 267, 42, 275, 42, 285, 42, 294, 42, 302, 42, 310, 42, 42, 310, 42, 302, -320, -285, -320, -290, -320, -295, -320, -300, -320, -305, -320, -310           };
+                            <span Class="KEY">int</span> v_height[] = {              75, 210, 175, 139, 103, 66, 31, 40, 158, 194, 132, 96, 59, 40           };
+                            <span Class="KEY">int</span> v_top[] = {                451, 170, 220, 270, 320, 370, 420, 370, 170, 120, 220, 270, 320, 437           };
+                            <span Class="KEY">int</span> v_left[] = {              302, -285, -290, -295, -300, -305, -310, 310, 275, 267, 285, 294, 302, 310           };
+                            <span Class="KEY">for</span> (<span Class="KEY">int</span> i = 0 ; i &lt; 29 ; i++) {
+                                client.<span Class="KEY">print</span>("&lt;div <span Class="KEY">class</span>=<span Class="STR">&quot;<span Class="KEY">line</span> h&quot; style=&quot;</span><span Class="STR">width</span>:");
+                                client.<span Class="KEY">print</span>(h_width[i]);
+                                client.<span Class="KEY">print</span>("px; top: ");
+                                client.<span Class="KEY">print</span>(h_top[i]);
+                                client.<span Class="KEY">print</span>("px; margin-left:");
+                                client.<span Class="KEY">print</span>(h_left[i]);
+                                client.<span Class="KEY">print</span>("px;&quot;&gt;&lt;/div&gt;");
+                            }            <span Class="KEY">for</span> (<span Class="KEY">int</span> i = 0 ; i &lt; 14 ; i++) {
+                                client.<span Class="KEY">print</span>("&lt;div <span Class="KEY">class</span>=<span Class="STR">&quot;<span Class="KEY">line</span> v&quot; style=&quot;</span><span Class="STR">height</span>:");
+                                client.<span Class="KEY">print</span>(v_height[i]);
+                                client.<span Class="KEY">print</span>("px; top: ");
+                                client.<span Class="KEY">print</span>(v_top[i]);
+                                client.<span Class="KEY">print</span>("px; margin-left:");
+                                client.<span Class="KEY">print</span>(v_left[i]);
+                                client.<span Class="KEY">print</span>("px;&quot;&gt;&lt;/div&gt;");
+                            }             <span Class="KEY">int</span> top = 100;
+                            <span Class="KEY">for</span> (<span Class="KEY">int</span> i = 9 ; i &gt;= 0 ; i--) {
+                                <span Class="KEY">if</span> (i != 4) {
+                                    client.<span Class="KEY">print</span>("&lt;div <span Class="KEY">class</span>=<span Class="STR">&quot;value&quot; style=&quot;</span>margin-left:317px; top:");
+                                    client.<span Class="KEY">print</span>(top);
+                                    top = top + 50;
+                                    client.<span Class="KEY">print</span>("px;<span Class="STR">&quot;&gt;&lt;span <span Class="KEY">class</span>=&quot;label&quot;</span>&gt;D");
+                                    client.<span Class="KEY">print</span>(i);
+                                    client.<span Class="KEY">print</span>("&lt;/span&gt;");
+                                    <span Class="KEY">if</span> (digitalReading[i] == HIGH) {
+                                        client.<span Class="KEY">print</span>("HIGH");
+                                    }                <span Class="KEY">else</span> {
+                                        client.<span Class="KEY">print</span>("LOW");
+                                    }                client.<span Class="KEY">println</span>("&lt;/div&gt;");
+                                }
+                            }           top = 150;
+                            <span Class="KEY">for</span> (<span Class="KEY">int</span> i = 0 ; i &lt; 6 ; i++) {
+                                client.<span Class="KEY">print</span>("&lt;div <span Class="KEY">class</span>=<span Class="STR">&quot;value&quot; style=&quot;</span>margin-left:-503px; top:");
+                                client.<span Class="KEY">print</span>(top);
+                                top = top + 50;
+                                client.<span Class="KEY">print</span>("px;<span Class="STR">&quot;&gt;&lt;span <span Class="KEY">class</span>=&quot;label&quot;</span>&gt;A");
+                                client.<span Class="KEY">print</span>(i);
+                                client.<span Class="KEY">print</span>("&lt;/span&gt;");
+                                client.<span Class="KEY">print</span>(analogReading[i]);
+                                client.<span Class="KEY">println</span>("&lt;/div&gt;");
+                            }            client.<span Class="KEY">println</span>("&lt;/body&gt;&lt;/html&gt;");
+                            <span Class="KEY">break</span>;
+                        }         <span Class="KEY">if</span> (c == <span Class="STR">'\n'</span>) {
+                            currentLineIsBlank = <span Class="KEY">true</span>;
+                        }         <span Class="KEY">else</span> <span Class="KEY">if</span> (c != <span Class="STR">'\r'</span>) {
+                            currentLineIsBlank = <span Class="KEY">false</span>;
+                        }
+                    }
+                }     <span Class="KEY">delay</span>(1);
+                client.stop();
+            }
+        }  <span Class="KEY">int</span> toInt(<span Class="KEY">char</span> c) {
+            <span Class="KEY">return</span> c - <span Class="STR">'0'</span>;
+        }</pre>
+    </div>
+    <div class="cFoot">
+        <a href="http://www.onformative.com/blog/codeformatter">code formatter</a>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--Creating global window variable for debugging through console-->
+		<script>global=window</script>
+		<!--                                                             -->
+
+		<!-- CDNs for visualization -->
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.min.js"></script>
+		<!--                        -->
+
+		<!-- Imported scripts -->
+		<script type="text/javascript" src='myo.js'></script>
+		<script type="text/javascript" src='emg-handler.js'></script>
+		<script type="text/javascript" src='classify-handler.js'></script>
+		<script type="text/javascript" src='livedata.js'></script>
+		<script type="text/javascript" src='util.js'></script>
+		<script type="text/javascript" src='position.js'></script>
+		<!--                  -->
+
+
+
+
+		<!-- CSS Files -->
+		<link rel="stylesheet" type="text/css" href="style/style.css"></link>
+		<link href="style.css" rel="stylesheet"></link>
+		<!--           -->
+
+
+
+	</head>
+	<body>
+		<title>Dexto - 3D Modeled Hand</title>
+		<p id="calibration">Place your hand on a flat surface with all of your fingers together again.</p>
+		<div id="container"></div>
+
+
+
+
+
+
+		<script src="lib/three.min.js"></script>
+    <script src="lib/ColladaLoader.js"></script>
+    <script src="lib/OrbitControls.js"></script>
+    <script src="lib/Detector.js"></script>
+    <script src="lib/Projector.js"></script>
+		<script src="lib/CanvasRenderer.js"></script>
+
+		<script src="main.js"></script>
+
+
+	</body>
+
+	<script>
+		var calibration = []
+		var index = 0
+		
+		$(document).keypress(function(e){
+			if(e.keyCode == 114) {	//r is pressed
+				if(recording) {
+					window.setup = false
+					recording = false
+					for(var i = 0; i < 8; i++){
+						
+						var histArray = $.map(history, function(value, index) {
+						    return [value];
+						});
+						for(key in history){
+							histArray.push(history[key])
+						}
+						var narray = []
+						for(var j = 0; j < histArray.length-7; j++){
+							narray.push(histArray[j][i])
+						}
+						console.log('standard deviation for port ' + i + ' on index ' + index + ': '+ calculateStandardDeviation(narray))
+						aggregateArray[index].push(calculateStandardDeviation(narray))
+					}
+					if(index==7){
+						endClassification()
+
+						canReceive = true
+					}
+					
+					history = [[]]
+					historyIndex = 0
+					if(index!=7){
+						index++
+					}
+					getInstruction()
+				} else {
+					window.setup = true
+					history = [[]]
+					historyIndex = 0
+					getInstruction()
+					recording = true
+				}
+			}
+		})
+		function getInstruction(){
+			switch(index){
+				case 1:
+					$('#calibration').text('Make a fist.')
+					break;
+				case 2:
+					$('#calibration').text('Touch your index finger to your thumb with all of your other fingers straight.')
+					break;
+				case 3:
+					$('#calibration').text('Touch your middle finger to your thumb with all of your other fingers straight..')
+					break;
+				case 4:
+					$('#calibration').text('Make another fist.')
+					break;
+				case 5:
+					$('#calibration').text('Touch your ring finger to your thumb with all of your other fingers straight..')
+					break;
+				case 6:
+					$('#calibration').text('Touch your pinky finger to your thumb with all of your other fingers straight..')
+					break;
+				case 7:
+					$('#calibration').text('Place your hand on a flat surface with all of your fingers together again.')
+					break;
+				case 8:
+					$('#calibration').text('Calibration Complete')
+					break;
+			}
+			
+		}
+		
+
+	</script>
+
+</html>

@@ -1,0 +1,68 @@
+#title{
+	background-color: #336699;
+}
+h5{
+	color: white;
+}
+#hand{
+	margin-top: 30px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+.v-line{
+	position:absolute;
+	background-color: #336699;
+	width: 5px;
+	left:50%;
+}
+.h-line{
+	position:absolute;
+	background-color: #336699;
+	height: 2px;
+	left:50%;
+}
+body{
+	position: relative;
+	overflow:hidden;
+}
+.infotxt{
+	position:absolute;
+	left:50%;
+	font-weight: 300;
+	font-size: 50px;
+}
+#title{
+	background-color: #336699;
+}
+h5{
+	color: white;
+}
+#hand{
+	margin-top: 30px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+.v-line{
+	position:absolute;
+	background-color: #336699;
+	width: 5px;
+	left:50%;
+}
+.h-line{
+	position:absolute;
+	background-color: #336699;
+	height: 2px;
+	left:50%;
+}
+body{
+	position: relative;
+	overflow:hidden;
+}
+.infotxt{
+	position:absolute;
+	left:50%;
+	font-weight: 300;
+	font-size: 50px;
+}

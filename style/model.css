@@ -1,0 +1,74 @@
+body{
+  font-family: 'Roboto', sans-serif;
+  background-image:none;
+  color:black;
+  overflow: hidden;
+}
+
+.logo{
+	transform: scale(.07);
+	margin: 0;
+	position: relative;
+	-webkit-transform-origin: 0% 0% 0px;
+	margin-top: -1.2vmin;
+}
+.navbar{
+	margin: 0;
+}
+.navbar-brand{
+	width: 100px;
+}
+#model-info-btn{
+    width:30px;
+    height: 30px;
+}
+#model-info-btn span{
+    transform: scale(0.5);
+    margin-top: -13.75px;
+    margin-left: -12.75px;
+}
+.myoStart path, .myoStart line{
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dashStart 4s linear alternate infinite;
+}
+
+@keyframes dashStart {
+  from {
+    stroke-dashoffset: 1100;
+  }
+  to {
+    stroke-dashoffset: 100;
+  }
+}
+
+#calibModal rect {
+  stroke-dasharray: 170;
+  stroke-dashoffset: 170;
+  animation: dashCalib 8s linear alternate infinite;
+}
+
+.infoModal{
+    left: calc(50% - 300px);
+    top: calc(20%);
+}
+.calib-timer{
+    margin-top: 8px !important;
+    font-size: 17px !important;
+    height: 21px !important;
+}
+
+@media (max-width: 768px){
+    .infoModal{
+        left: calc(50% - 120.5px);
+    }
+}
+
+@keyframes dashCalib {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

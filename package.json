@@ -1,0 +1,25 @@
+{
+  "name": "dextolabs.github.io",
+  "version": "1.0.0",
+  "description": "3D Modelled Prosthetic Hand Using Myo",
+  "main": "webserver.js",
+  "dependencies": {
+    "express": "^4.13.1",
+    "myo": "^2.0.0",
+    "serve-static": "^1.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DextoLabs/dextolabs.github.io.git"
+  },
+  "author": "Rohan Iyer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DextoLabs/dextolabs.github.io/issues"
+  },
+  "homepage": "https://github.com/DextoLabs/dextolabs.github.io#readme"
+}

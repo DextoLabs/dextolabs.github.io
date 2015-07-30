@@ -1,35 +1,121 @@
 html{
 	max-width: 100%;
 }
-body{
-	max-width: 100%;
-	overflow: hidden;
-	font-family: 'Roboto', sans-serif;
-	background-image: url("../blurred.jpg");
-	background-repeat: no-repeat;
-	background-size: length;
-	color:white;
-	padding: 0 0 0 0;
+body {
+	overflow-x:hidden;
+}
+@font-face {
+	font-family: BrandonReg;
+	src: url(../font/brandon/Brandon_med.otf);
+}
+@font-face {
+	font-family: BrandonThin;
+	src: url(../font/brandon/Brandon_thin.otf);
 }
 
-#title-text{
+#landing {
+	font-size:50pt;
+	font-family: 'BrandonThin';
+	letter-spacing: 2px;
+	color: #2ECC71;
+	font-weight: 700;
+	top: 35%;
+	width: 100%;
+	position: absolute;
+	overflow: hidden;
+
+}
+.constellation{
+	width: 100%;
+	size: cover;
+	position: relative;
+
+}
+
+#background {
+	position: fixed;
+	left: -10%;
+	top:-10%;
+	z-index: -1;
+	display: block;
+	background-image: url('../img/drifts.png');
+	/*background-color: #22313F;*/
+	width: 120%;
+	height: 120%;
+	overflow: hidden;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+
+}
+
+#message {
+	position: absolute;
+	z-index: 1;
+	background-color: #F2F3F7;
+	left: 0;
+	width: 100%;
+	top:100%;
+	height: 70px;
+}
+
+#message p {
+	color: #7B8087;
 	text-align: center;
-	font-size: 7vmin;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'BrandonThin';
+	font-size: 20pt;
+	margin-top: 15px;
 }
-#info-section{
-	font-family: 'Roboto', sans-serif;
-	margin-top: 90px;
+
+#message p b {
+	font-family: 'BrandonReg'
 }
-.sec1{
-	border-right: 1px solid white;
+
+#about {
+	font-family: 'BrandonThin';
+	position: absolute;
+	left: 0;
+	top:calc(100% + 70px);
+	background-color: white;
+	color:#7B8087;
+	font-size: 40pt;
+	height: 400px;
+	width: 100%;
+	padding-top: 20px;
+
 }
-.secright, .secleft{
-	width: 10vmin;
+
+#features {
+	font-family: 'BrandonThin';
+	position: absolute;
+	left: 0;
+	top:calc(100% + 70px + 400px);
+	background-color: #2ECC71;
+	color:white;
+	font-size: 40pt;
+	height: 300px;
+	width: 100%;
+	padding-top: 20px;
 }
-.rightsec p, .leftsec p{
-	font-size: 3.7vmin;
+
+
+
+p {
+	text-align: center;
+	margin: 0 auto;
+	padding: 0;
 }
+h5 {
+	text-align: center;
+	color:white;
+	font-family: 'BrandonThin' !important;
+	font-size: 30pt !important;
+	padding: 0;
+	margin: 0;
+	letter-spacing: 1px !important;
+}
+
 .logo{
 	transform: scale(.07);
 	margin: 0;
@@ -39,7 +125,12 @@ body{
 }
 .navbar{
 	margin: 0;
+	font-family: 'BrandonThin';
+	font-size: 15pt;
 }
 .navbar-brand{
 	width: 100px;
+}
+.navbar li:last-child{
+	margin-right: 20px;
 }

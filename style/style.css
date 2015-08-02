@@ -45,7 +45,7 @@ h5 {
 }
 .navbar .home{
 	height: 60px;
-	width: 100px;
+	width: 70px;
 }
 
 #landing {
@@ -145,20 +145,30 @@ h5 {
 
 
 
-/*login page*/
-.login-page{
+/*login page/signup page*/
+.login-page, .signup-page{
 	padding-top: 100px;
 	font-size:16pt;
 	font-family: 'BrandonThin';
 	width: 500px;
 }
-.login-form-cont{
+.login-form-cont, .signup-form-cont{
 	padding: 30px 50px;
 }
-.login-page label{
+.login-page label, .signup-page label{
 	font-size: 14pt;
 	text-align: left !important;
 }
-.login-btn{
+.login-btn, .signup-btn{
 	width: calc(100% + 3px);
+}
+.input::-webkit-input-placeholder{
+	font-size: 1pt;
+	color: red !important;
+}
+.input[type="password"]:-ms-input-placeholder{
+
+}
+.input[type="password"]::-moz-placeholder{
+
 }

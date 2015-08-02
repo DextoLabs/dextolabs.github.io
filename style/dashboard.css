@@ -70,5 +70,9 @@ h5 {
 }
 .home{
 	height: 60px;
-	width: 100px;
+	width: 70px;
+}
+canvas{
+	width: 100% !important;
+	height: auto !important;
 }

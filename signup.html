@@ -4,7 +4,7 @@
     <title>Dexto</title>
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="style/dashboard.css" type="text/css">
+    <link rel="stylesheet" href="style/style.css" type="text/css">
     <link href="css/material-fullpalette.min.css" rel="stylesheet">
     <link href="css/ripples.min.css" rel="stylesheet">
 
@@ -65,55 +65,39 @@
 
 
 
-    <div class="container page">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card user-info">
-                    <h3> Welcome <span class="user"></span></h3>
-                    Event: <span class="event">None</span><br>
-                    Status: <span class="status">Offline</span>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card create-event">
-                    sadas
-                </div>
-            </div>
-        </div>
-
-        <div style="margin-top: 30px;"class= "row">
-            <div class = "col-md-6">
-                 <div class="card create-event">
-                    <h3>Create Events</h3>
-                    <div style="overflow-y:scroll;height:30px;">
-                        <div class = "event1">Event1</div>
-                        <div class = "event1">Event1</div>
-                        <div class = "event1">Event1</div>
-                        <div class = "event1">Event1</div>
+    <div class="container signup-page">
+        <div class="card form-cont signup-form-cont">
+            <form class="form-horizontal signup-form" novalidate>
+                <fieldset>
+                    <legend>Dexto</legend>
+                    <div class="form-group email-group" style = "white-space: nowrap; overflow: hidden">
+                        <label for="inputEmail" class="col-lg-3 control-label">Email</label>
+                        <div class="col-lg-9">
+                            <input type="email" class="form-control" id="signEmail" placeholder="Email">
+                        </div>
                     </div>
-                    <button type="button" class="btn btn-default dropdown-toggle"></button>
-                </div>
-
-            </div>
-            <div class = "col-md-6">
-                 <div class="card create-event">
-                    sadas
-                </div>
-            </div>
+                    <div class="form-group pass-group">
+                        <label for="inputPassword" class="col-lg-3 control-label">Password</label>
+                        <div class="col-lg-9">
+                            <input type="password" class="form-control" id="signPassword" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group pass-group">
+                        <label for="inputPassword" class="col-lg-3 control-label">Repeat</label>
+                        <div class="col-lg-9">
+                            <input type="password" class="form-control" id="repSignPassword" placeholder="Repeat Password">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary signup-btn">Sign Up</button>
+                </fieldset>
+            </form>
         </div>
-
     </div>
-
 
     <!-- libraries -->
     <script src="lib/jquery.min.js"></script>
     <script src="lib/bootstrap.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.min.js"></script>
-
-    <script src='script/myo.js'></script>
 
     <!-- Material Design for Bootstrap -->
     <script src="js/material.min.js"></script>

@@ -11,6 +11,9 @@ app.use('/' , express.static(__dirname + '/'));
  app.get('/login', function(req, res){
    res.sendfile('login.html');
  });
+ app.get('/signup', function(req, res){
+   res.sendfile('signup.html');
+ });
  app.get('/dashboard', function(req, res){
    res.sendfile('dashboard.html');
  });

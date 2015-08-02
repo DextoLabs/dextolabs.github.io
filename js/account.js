@@ -1,7 +1,7 @@
 var ref = new Firebase('https://dexto.firebaseio.com/');
 
 var user = 'loggedOut'
-var token = localStorage.getItem('token');
+var token = localStorage.getItem('dextoToken');
 if(token == null){
   token = "No Token"
 }
@@ -11,6 +11,8 @@ ref.authWithCustomToken(token, function(error, result) {
     console.log("No pre-existing token found");
   } else {
     console.log("Pre-existing token found");
+    user = result.uid;
+    configureUserOnDashboard();
   }
 });
 
@@ -24,8 +26,9 @@ function createUser(email, password){
             console.error("Error creating user:", error);
         } else {
             console.log("Successfully created user account with uid:", userData.uid);
-            ref.child('users').child(accountId).set({
-                events:{
+            login(email, password);
+            ref.child('user').child(userData.uid).set({
+                event:{
                     empty: "empty",
                 },
                 email: email,
@@ -46,52 +49,46 @@ function login(email, password){
     }, function authHandler(error, authData) {
         if (error) {
             console.error("Login Failed!", error);
-            if(JSON.stringify(error).indexOf("EMAIL") > -1){
-                $("#inputEmail").focus();
-                $(".login-btn").text("The specified email address is invalid.");
-                $(".login-btn").removeClass("btn-primary").addClass("btn-material-red-600");
+            if(JSON.stringify(error).includes("EMAIL")){
+                $(".email-group").addClass("has-error");
+                $("#inputEmail").val("").focus();
+                $(".login-btn").text("The specified email address is invalid");
+                $(".password-group").removeClass("has-error");
             }else{
-                $("#inputPassword").focus();
-                $(".login-btn").text("The specified password is incorrect.");
-                $(".login-btn").removeClass("btn-primary").addClass("btn-material-red-600");
+                $(".pass-group").addClass("has-error");
+                $("#inputPassword").val("").focus();
+                $(".login-btn").text("The specified password is incorrect");
+                $(".email-group").removeClass("has-error");
             }
         } else {
             console.log("Authenticated successfully with payload:", authData);
             token = authData.token;
-            localStorage.setItem('token', token);
-            var len = authData.uid.length
-            user = parseInt(authData.uid.substring(12, len));
+            localStorage.setItem('dextoToken', token);
+            user = authData.uid;
         }
     });
 }
 
 function logout(){
     ref.unauth();
-    localStorage.removeItem('token');
+    localStorage.removeItem('dextoToken');
     user = 'loggedOut'
 }
 
 //checks any changes in user authentication
-ref.onAuth(function(){
-    if(ref.getAuth() == null){
-        $(".auth-status-title").text("Logged Out");
-        $(".auth-status-color").removeClass("panel-success").addClass("panel-danger");
-        $(".auth-status").css({"cursor": "pointer"});
-        $(".navbar-login").text("Login");
-    }else{
-        $(".auth-status-title").text("Logged In");
-        $(".auth-status-color").removeClass("panel-danger").addClass("panel-success");
-        $(".auth-status").css({"cursor": "auto"});
-        $(".navbar-login").text("Logout");
-        $(".navbar-login").attr("href", "");
-        $(".navbar-login").click(function(){
-            logout();
-        });
-        if(window.location.href.includes("login")){
-            window.location.href = "index.html";
+function checkAuthChanges(){
+    ref.onAuth(function(){
+        if(ref.getAuth() == null){
+            if(window.location.href.includes("dashboard")) {
+                window.location.href = "login";
+            }
+        }else{
+            if(window.location.href.includes("login") || window.location.href.includes("signup")){
+                window.location.href = "dashboard";
+            }
         }
-    }
-});
+    });
+}
 
 function deleteUser(email, password){
     ref.removeUser({
@@ -127,11 +124,21 @@ function accountAuthStatus(){
     },500);
 }
 
+
+function configureUserOnDashboard(){
+    var userRef = ref.child("user/" + user + "/email");
+    userRef.once("value", function(snapshot){
+        $(".user").text(snapshot.val());
+    });
+}
+
 setTimeout(accountAuthStatus, 500);
+setTimeout(checkAuthChanges, 3000);
+
 
 $(".auth-status").click(function(){
     if(user == "loggedOut"){
-        window.location.href="login.html"
+        window.location.href="login.html";
     }
 });
 
@@ -142,8 +149,6 @@ $(".login-form").submit(function(e) {
     login(username, password);
 });
 
-$(".alert").hide();
-
 $(".signup-form").submit(function(e) {
     e.preventDefault();
     var username = $("#signEmail").val();
@@ -153,19 +158,27 @@ $(".signup-form").submit(function(e) {
     if(checkIfEmailInString(email)){
         if(password == repPass){
             if(password.length >= 6){
-                $(".alert").hide();
                 createUser(username, password);
-                login(username, password);
+
             }else{
-                $(".login-error").text("Your password must have 6 or more characters!");
-                $(".alert").show();
+                $(".signup-btn").text("The specified email address is not valid");
+                $(".pass-group").addClass("has-error");
+                $("#signPassword").val("").focus();
+                $(".signup-btn").text("Passwords must have 6 or more characters");
+                $(".email-group").removeClass("has-error");
             }
         }else{
-            $(".login-error").text("Passwords do not match!");
-            $(".alert").show();
+            $(".signup-btn").text("The specified email address is not valid");
+            $(".pass-group").addClass("has-error");
+            $("#repSignPassword").val("").focus();
+            $(".signup-btn").text("Passwords do not match");
+            $(".email-group").removeClass("has-error");
         }
     }else{
-        $(".login-error").text("That is not a valid email address!");
-        $(".alert").show();
+        $(".signup-btn").text("The specified email address is not valid");
+        $(".email-group").addClass("has-error");
+        $("#signEmail").val("").focus();
+        $(".signup-btn").text("The specified email address is invalid");
+        $(".password-group").removeClass("has-error");
     }
 });

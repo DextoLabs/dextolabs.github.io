@@ -1,0 +1,74 @@
+html{
+	max-width: 100%;
+}
+body {
+	overflow-x:hidden;
+}
+@font-face {
+	font-family: BrandonReg;
+	src: url(../font/brandon/Brandon_med.otf);
+}
+@font-face {
+	font-family: BrandonThin;
+	src: url(../font/brandon/Brandon_thin.otf);
+}
+.container{
+    width: 80%;
+}
+.page {
+    padding-top: 100px;
+	font-size:20pt;
+	font-family: 'BrandonThin';
+}
+
+.user-info, .create-event{
+    height: 170px;
+    padding: 20px;
+}
+
+p {
+	text-align: center;
+	margin: 0 auto;
+	padding: 0;
+}
+h5 {
+	text-align: center;
+	color:white;
+	font-family: 'BrandonThin' !important;
+	font-size: 30pt !important;
+	padding: 0;
+	margin: 0;
+	letter-spacing: 1px !important;
+}
+
+.logo{
+	transform: scale(.07);
+	margin: 0;
+	position: relative;
+	-webkit-transform-origin: 0% 0% 0px;
+	margin-top: -1.2vmin;
+}
+.navbar{
+	margin: 0;
+	font-family: 'BrandonThin';
+	font-size: 15pt;
+}
+.navbar-brand{
+	width: 100px;
+}
+.navbar li:last-child{
+	margin-right: 20px;
+}
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+.home{
+	height: 60px;
+	width: 100px;
+}

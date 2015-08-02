@@ -8,11 +8,11 @@ app.use('/' , express.static(__dirname + '/'));
  app.get('/model', function(req, res){
    res.sendfile('model.html');
  });
- app.get('/room', function(req, res){
-   res.sendfile('room.html');
+ app.get('/login', function(req, res){
+   res.sendfile('login.html');
  });
- app.get('/docs', function(req, res){
-   res.sendfile('docs.html');
+ app.get('/dashboard', function(req, res){
+   res.sendfile('dashboard.html');
  });
  app.get('/', function(req, res){
    res.sendfile('index.html');

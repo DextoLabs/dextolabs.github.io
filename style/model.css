@@ -12,12 +12,36 @@ body{
 	-webkit-transform-origin: 0% 0% 0px;
 	margin-top: -1.2vmin;
 }
+@font-face {
+	font-family: BrandonReg;
+	src: url(../font/brandon/Brandon_med.otf);
+}
+@font-face {
+	font-family: BrandonThin;
+	src: url(../font/brandon/Brandon_thin.otf);
+}
 .navbar{
 	margin: 0;
+	font-family: 'BrandonThin';
+	font-size: 15pt;
 }
 .navbar-brand{
 	width: 100px;
 }
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+.navbar .home{
+	height: 60px;
+	width: 70px;
+}
+
 #model-info-btn{
     width:30px;
     height: 30px;

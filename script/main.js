@@ -67,7 +67,7 @@ function animate() {
 
     //hand animation
     getGoalAngle();
-    //rotateToAngle(goalAngle1, goalAngle2, goalAngle3, goalAngle4)
+    rotateToAngle(goalAngle1, goalAngle2, goalAngle3, goalAngle4)
 
     if (limitCount % 10 == 0) {
         ref.child('rohan').update({
@@ -85,11 +85,10 @@ function animate() {
 
     setAngle();
     storeHandPos();
-    defaultAnimation();
+    //defaultAnimation();
     moveHand(dataX*zeros, dataY*zeros, dataZ*zeros);
     rotateHand(count, 0, 0);
 
-    thumbDef.position.y = 1000;
 
     controls.update();
 }

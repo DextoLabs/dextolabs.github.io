@@ -121,9 +121,9 @@ h5 {
 
 }
 .about-description{
-	margin-left: auto;
-	margin-right: auto;
 	font-size: 25pt;
+	width: 700px;
+	text-align: center !important;
 }
 
 #features {

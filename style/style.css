@@ -130,7 +130,7 @@ h5 {
 	font-family: 'BrandonThin';
 	position: absolute;
 	left: 0;
-	top:calc(100% + 600px);
+	top:calc(100% + 670px);
 	background-color: #2ECC71;
 	color:white;
 	font-size: 40pt;
@@ -145,6 +145,63 @@ h5 {
 	position: relative;
 	-webkit-transform-origin: 0% 0% 0px;
 	margin-top: -1.2vmin;
+}
+
+/*Homepage buttons*/
+.herobuttons{
+  margin-left: auto;
+  margin-right: auto;
+}
+.learnmore, .schedule{
+
+  text-transform: uppercase;
+  outline: none;
+  margin-right: 1vmin;
+  margin-left: 1vmin;
+  border-radius: 5vmin;
+  width: 16vmin;
+  height: 6vmin;
+  font-size: 2vmin;
+  white-space: nowrap;
+  font-family: 'BrandonThin';
+}
+
+.learnmore{
+  color: white;
+  background-color: rgba(0,0,0,0);
+  border: 1px solid #fff;
+
+}
+.learnmore:hover{
+  color: #fff;
+  background-color: rgba(46,204,113, 0.2);
+}
+.schedule{
+  color: #2ECC71);
+  border: none;
+  background-color: #fff;
+}
+.schedule:hover{
+  color: white;
+  background-color: rgba(0,0,0,0);
+  border: 1px solid #fff;
+}
+
+.downicon {
+  position: relative;
+  width: 1.5vmin;
+  animation-name: bobbing;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+@keyframes bobbing {
+    0% {bottom: -0vmin;}
+    50%{bottom: -1vmin;}
+    100%{bottom:-0vmin;}
 }
 
 
